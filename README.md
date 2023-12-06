@@ -4,7 +4,7 @@
 
 ## What is Simple Shell Project?
 
-- This is a project about the Linux Command Line Interpreter which is basically the shell or terminal. It provides an interface for the user to interact with the kernel and hence excute commands which are user programs. 
+- This is a project about the Linux Command Line Interpreter which is basically the shell or terminal. It provides an interface for the user to interact with the kernel and hence excute commands which are user programs.
 - An example of such an instance will be if the user types in pwd, the print working directory command will be executed.
 - In this project, we will be basically creating our own shell for use.
 - We are allowed to use the following functions, otherwise we are expected to come up with our own functions for this project.
