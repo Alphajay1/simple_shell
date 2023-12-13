@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+#include <string.h>
 
 extern char **environ;
 
@@ -20,6 +21,5 @@ pid_t check_fork(void);
 size_t _strcspn(const char *s, const char *reject);
 int _putchar(char c);
 void _puts(char *s);
-void check_token(char *cmd, char *args[]);
 
 #endif
