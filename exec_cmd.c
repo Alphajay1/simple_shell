@@ -1,6 +1,5 @@
 #include "shell_header.h"
 #include <string.h>
-
 /**
  * exec_cmd - executes command
  * @command: command to be passed
@@ -14,8 +13,7 @@ void exec_cmd(char *command)
 	int status;
 	char *cmd = strtok(command, " ");
 
-	args[0] = cmd;
-	args[1] = NULL;
+	args[0] = cmd, args[1] = NULL;
 	if (!isatty(fileno(stdin)))
 	{
 		pid = check_fork();
@@ -25,7 +23,7 @@ void exec_cmd(char *command)
 			if (execve(cmd, args, NULL) == -1)
 			{
 				free(command);
-				perror("execve failed");
+				perror("./shell");
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -34,6 +32,20 @@ void exec_cmd(char *command)
 	}
 	else
 	{
-		check_token(command, args);
+		if (strtok(NULL, " ") != NULL)
+		{
+			_puts("Too many arguments passed\n");
+			return;
+		}
+		pid = check_fork();
+		if (pid == 0)
+		{
+			execve(cmd, args, NULL);
+			perror("execve failed");
+			free(cmd);
+			exit(EXIT_FAILURE);
+		}
+		else
+			waitpid(pid, &status, 0);
 	}
 }
