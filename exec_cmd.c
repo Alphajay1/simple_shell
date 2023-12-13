@@ -33,7 +33,7 @@ void exec_cmd(char *command)
 	{
 		if (strtok(NULL, " ") != NULL)
 		{
-			_puts("Too many arguments passed\n");
+			printf("Too many arguments passed\n");
 			return;
 		}
 		pid = check_fork();

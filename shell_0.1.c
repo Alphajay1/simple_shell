@@ -26,7 +26,7 @@ int main(void)
 			}
 			break;
 		}
-		input_cmd[_strcspn(input_cmd, "\n")] = '\0';
+		input_cmd[strcspn(input_cmd, "\n")] = '\0';
 		if (input_cmd[0] != '\0')
 			exec_cmd(input_cmd);
 		free(input_cmd);
