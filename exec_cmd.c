@@ -1,5 +1,4 @@
 #include "shell_header.h"
-#include <string.h>
 /**
  * exec_cmd - executes command
  * @command: command to be passed
