@@ -24,7 +24,7 @@ void search_path(char *args[])
 		}
 	}
 	token = strtok(path, ":");
-	while(token != NULL)
+	while (token != NULL)
 	{
 		snprintf(path_line, sizeof(path_line), "%s%c%s", token, delim, args[0]);
 		if (access(path_line, X_OK) == 0)

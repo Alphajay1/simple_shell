@@ -1,11 +1,11 @@
 #include "shell_header.h"
 /**
- * exec_cmd - executes command
+ * exec_cmds - executes command
  * @command: command to execute
  *
  * Return: nothing
  */
-void exec_cmd(char *command)
+void exec_cmds(char *command)
 {
 	pid_t pid = getpid();
 	int status, args_count;
@@ -25,7 +25,7 @@ void exec_cmd(char *command)
 	}
 	args[args_count] = NULL;
 	env_cmd(args);
-	if(args_count > 0)
+	if (args_count > 0)
 	{
 		pid = check_fork();
 		if (pid == 0)

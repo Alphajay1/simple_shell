@@ -12,6 +12,7 @@ extern char **environ;
 
 void display_prompt(void);
 void exec_cmd(char *command);
+void exec_cmds(char *command);
 pid_t check_fork(void);
 void search_path(char *args[]);
 int env_cmd(char **args);

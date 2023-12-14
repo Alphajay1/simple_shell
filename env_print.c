@@ -19,10 +19,11 @@ void env_print(void)
  */
 int env_cmd(char **args)
 {
-	if (args[0] != NULL && (strcmp(args[0], "env") == 0 || strcmp(args[0], "printenv") == 0))
+	if (args[0] != NULL && (strcmp(args[0], "env") == 0 ||
+				strcmp(args[0], "printenv") == 0))
 	{
 		env_print();
 		return (0);
 	}
-	return(-1);
+	return (-1);
 }
