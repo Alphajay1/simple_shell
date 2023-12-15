@@ -27,10 +27,6 @@ void exec_cmd(char *command)
 		else
 			waitpid(pid, &status, 0);
 	}
-	if (strcmp(args[0], "env") == 0)
-		env_cmd(args);
-	if (strcmp(args[0], "exit") == 0)
-		exit(EXIT_SUCCESS);
 	if (strtok(NULL, " ") != NULL)
 	{
 		printf("Too many arguments passed\n");
