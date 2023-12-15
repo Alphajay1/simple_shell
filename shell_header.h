@@ -18,4 +18,11 @@ void search_path(char *args[]);
 int env_cmd(char **args);
 void env_print(void);
 void exit_cmd(void);
+void _puts(char *s);
+int _putchar(char c);
+size_t _strlen(const char *str);
+char *_strcpy(char *dest, const char *src);
+char *_strcat(char *dest, const char *src);
+int _strcmp(const char *s1, const char *s2);
+size_t _strcspn(const char *s, const char *reject);
 #endif
