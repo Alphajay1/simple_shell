@@ -17,34 +17,33 @@ void exec_cmd(char *command)
 	{
 		pid = check_fork();
 		if (pid == 0)
-		{
 			execve(cmd, args, NULL);
-			if (execve(cmd, args, NULL) == -1)
-			{
-				free(command);
-				perror("./shell");
-				exit(EXIT_FAILURE);
-			}
-		}
-		else
-			waitpid(pid, &status, 0);
-	}
-	else
-	{
-		if (strtok(NULL, " ") != NULL)
+		if (execve(cmd, args, NULL) == -1)
 		{
-			printf("Too many arguments passed\n");
-			return;
-		}
-		pid = check_fork();
-		if (pid == 0)
-		{
-			execve(cmd, args, NULL);
-			perror("execve failed");
-			free(cmd);
+			free(command);
+			perror("./shell");
 			exit(EXIT_FAILURE);
 		}
 		else
 			waitpid(pid, &status, 0);
 	}
+	if (strcmp(args[0], "env") == 0)
+		env_cmd(args);
+	if (strcmp(args[0], "exit") == 0)
+		exit(EXIT_SUCCESS);
+	if (strtok(NULL, " ") != NULL)
+	{
+		printf("Too many arguments passed\n");
+		return;
+	}
+	pid = check_fork();
+	if (pid == 0)
+	{
+		execve(cmd, args, NULL);
+		perror("execve failed");
+		free(cmd);
+		exit(EXIT_FAILURE);
+	}
+	else
+		waitpid(pid, &status, 0);
 }
