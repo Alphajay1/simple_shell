@@ -29,6 +29,8 @@ int main(void)
 		input_cmd[strcspn(input_cmd, "\n")] = '\0';
 		if (input_cmd[0] != '\0')
 		{
+			if (strcmp(input_cmd, "exit") == 0)
+				exit_cmd();
 			if (strchr(input_cmd, ' ') != NULL)
 				exec_cmds(input_cmd);
 			else

@@ -17,4 +17,5 @@ pid_t check_fork(void);
 void search_path(char *args[]);
 int env_cmd(char **args);
 void env_print(void);
+void exit_cmd(void);
 #endif
